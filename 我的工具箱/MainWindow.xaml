@@ -5,8 +5,113 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:我的工具箱"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="764" Width="800" FontSize="20"  AllowDrop="True" >
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Excel"   >
+                <StackPanel Orientation="Vertical" >                    
+                    <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                        <ListBox x:Name="ExcelInput"  Height ="200"  Width="787"  Drop="ExcelInput_Drop" AllowDrop="True"   HorizontalAlignment="Left"   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                        <ListBox x:Name="ExcelInputDir"  Height ="200"  Width="787"  Drop="ExcelInput_DropDir" AllowDrop="True"   HorizontalAlignment="Left"   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+
+                    </StackPanel  >
+                    <StackPanel Orientation="Horizontal"  />
+
+
+                    <StackPanel Orientation="Horizontal"  >
+                        <TextBlock TextWrapping="Wrap" Text="Key Column: "/>
+                        <TextBox x:Name="col_key" TextWrapping="Wrap"  Text="3"/>
+                        <Button Content="Color Rows" Height="65" Width="250" Click="Color_Worksheets"/>
+                    </StackPanel >
+                    <StackPanel Orientation="Horizontal"  >
+                        <Button Content="提取奇偶行"  Height="80"  VerticalAlignment="Top" Width="200" Click="Odd_Even" FontSize="24"  />
+                        <Button Content="TXT文本导入"  Height="80"  VerticalAlignment="Top" Width="200" Click="TXT_TOEXCEL" FontSize="24"  />
+
+                        <Button Content="合并Excel表格"  Height="80"  VerticalAlignment="Top" Width="200" Click="MERGE_EXCEL" FontSize="24"  />
+                    </StackPanel >
+                    <StackPanel Orientation="Horizontal"  >
+                        <Button Content="清理德语助手Excel"  Height="80"  VerticalAlignment="Top" Width="210" Click="ZS_TOEXCEL" FontSize="24"  />
+                        <Button Content="清理法语助手Excel"  Height="80"  VerticalAlignment="Top" Width="210" Click="ZS_FR_TOEXCEL" FontSize="24"  />
+                        <Button Content="清理西语助手Excel"  Height="80"  VerticalAlignment="Top" Width="210" Click="ZS_ES_TOEXCEL" FontSize="24"  />
+                    </StackPanel >
+                    <Button Content="Clear Input" Height="65" Width="210" Click="Clear_Input"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="TXT"   >
+                <StackPanel Orientation="Vertical" >
+
+                    <ListBox x:Name="TXTInput"  Height ="200"  Width="787"  Drop="TXT_Drop" AllowDrop="True"   HorizontalAlignment="Left"   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+
+                    <ListBox x:Name="TXTInputDir"  Height ="200"  Width="787"  Drop="TXT_DropDir" AllowDrop="True"   HorizontalAlignment="Left"   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,50,0,0" >
+
+                        <Button Content="TXTToExcel" Height="65" Width="220" Click="ExtractAccessToExcel"/>
+                    </StackPanel >
+                    <Button Content="Clear Input" Height="65" Width="250" Click="Clear_InputAccess"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="OneNote"  />
+            <TabItem Header="Word"  >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="769*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Word 提取段落" Width="210" Height="60" Margin="10.316,236,549,236" Click="Button_Click" Grid.Column="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="TMX处理" >
+                <StackPanel Orientation="Vertical" >
+
+                    <ListBox  Height ="200"   x:Name="lbFile" Drop="ListBox_Drop" AllowDrop="True"   />
+
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal" >
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock TextWrapping="Wrap" Text="Source Language: "/>
+                            <TextBox x:Name="sourceL" TextWrapping="Wrap"  Text="en-US  "/>
+                        </StackPanel  >
+                        <StackPanel Orientation="Horizontal" Margin="50,0,0,0" >
+                            <TextBlock TextWrapping="Wrap" Text="Target Language: "/>
+                            <TextBox x:Name="targetL"   TextWrapping="Wrap" Text= "zh-CN "/>
+                        </StackPanel >
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,50,0,0" >
+
+                        <Button Content="Convert Excel/TMX" Height="65" Width="200" Click="Convert_TMX_EXCEL"/>
+                    </StackPanel >
+                    <Button Content="Clear Input" Height="65" Width="250" Click="Clear_InputExcel"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Access"   >
+                <StackPanel Orientation="Vertical" >
+
+                    <ListBox x:Name="AccessInput"  Height ="200"  Width="787"  Drop="AccessInput_Drop" AllowDrop="True"   HorizontalAlignment="Left"   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal" >
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock TextWrapping="Wrap" Text="Source Language: "/>
+                            <TextBox x:Name="sourceLA" TextWrapping="Wrap"  Text="en-US  "/>
+                        </StackPanel  >
+                        <StackPanel Orientation="Horizontal" Margin="50,0,0,0" >
+                            <TextBlock TextWrapping="Wrap" Text="Target Language: "/>
+                            <TextBox x:Name="targetLA"   TextWrapping="Wrap" Text= "zh-CN "/>
+                        </StackPanel >
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Horizontal" Margin="0,50,0,0" >
+
+                        <Button Content="ExtractAccessToExcel" Height="65" Width="220" Click="ExtractAccessToExcel"/>
+                    </StackPanel >
+                    <Button Content="Clear Input" Height="65" Width="250" Click="Clear_InputAccess"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Window>

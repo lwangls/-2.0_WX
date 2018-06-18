@@ -1,0 +1,21 @@
+﻿1.注意 类，context， 数据库表的名称约定
+2. 使用DBfirst 需要在数据库里先添加空表__MigrationHistory表：
+MigrationId  短文本
+ContextKey  长文本
+Model    OLE 对象
+ProductVersion  短文本 
+
+===============================
+动态设置连接字符串
+
+public DbContext(
+	DbConnection existingConnection,
+	bool contextOwnsConnection
+)
+参数
+existingConnection
+类型：System.Data.Common.DbConnection
+要用于新的上下文的现有连接。
+contextOwnsConnection
+类型：System.Boolean
+如果设置为 true，则释放上下文时将释放该连接；否则调用方必须释放该连接。
